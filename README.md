@@ -57,13 +57,27 @@ By default, the `@Id` annotation will automatically determine the most appropria
 
 # Fetching Objects in Hibernate 
 
-In hibernate, get() and load() are two methods which is used to fetch data for the given identifier. They both belong to Hibernate session class. Get() method return null, If no row is available in the session cache or the database for the given identifier whereas load() method throws object not found exception. 
+In hibernate, get() and load() are two methods which is used to fetch data for the given identifier. They both belong to Hibernate session class. Get() method return null, If no row is available in the session cache or the database for the given identifier whereas load() method throws object not found exception.
+
+Demo program for fetching data - [click here](https://github.com/neerajchavan/hibernate/blob/master/src/main/java/com/hibernate/learning_hibernate/FetchDemo.java)
 
 | Key | get()  | load() |
 | -------------- | ------------- | ------------- |
-| Basic | It  is used to fetch data from the database for the given identifier|It  is also used to fetch data from the database for the given identifier |
-| Null Object  | It object not found for the given identifier then it will return null object |It will throw object not found exception. |
-| Lazy or Eager loading | It returns fully initialized object so this method eager load the object |It always returns proxy object so this method is lazy load the object. |
-| Performance | It is slower than load() because it return fully initialized object which impact the performance of the application |It is slightly faster. |
+| Basic | It  is used to fetch data from the database for the given identifier. |It  is also used to fetch data from the database for the given identifier. |
+| Null Object  | It object not found for the given identifier then it will return null object. |It will throw object not found exception. |
+| Lazy or Eager loading | It returns fully initialized object so this method eager load the object. |It always returns proxy object so this method is lazy load the object. |
+| Performance | It is slower than load() because it return fully initialized object which impact the performance of the application. |It is slightly faster. |
 | Use Case | If you are not sure that object exist then use get() method |If you are sure that object exist then use load() method. |
+
+# Embedding objects - [click here](https://www.youtube.com/watch?v=niSfoMlQafk&list=PL0zysOflRCekX8OO7V7pGQ9kxZ28JyJlk&index=10)
+
+# Hibernate Mapping
+
+1. **One to One Mapping :**
+   - Using annotations :
+     - theory with example- [click here](https://www.javatpoint.com/hibernate-one-to-one-example-using-annotation)
+     - program - []()
+
+   - Using XML :
+     - thoery with example- [click here](https://www.javatpoint.com/hibernate-one-to-one-example-using-xml)
 
