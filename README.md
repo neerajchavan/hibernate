@@ -75,9 +75,17 @@ Demo program for fetching data - [click here](https://github.com/neerajchavan/hi
 
 1. **One to One Mapping :**
    - Using annotations :
-     - theory with example- [click here](https://www.javatpoint.com/hibernate-one-to-one-example-using-annotation)
-     - program - []()
+     - theory - [click here](https://www.javatpoint.com/hibernate-one-to-one-example-using-annotation)
+     - program files - [click here](https://github.com/neerajchavan/hibernate/tree/master/src/main/java/com/mapping)
 
    - Using XML :
-     - thoery with example- [click here](https://www.javatpoint.com/hibernate-one-to-one-example-using-xml)
+     - thoery - [click here](https://www.javatpoint.com/hibernate-one-to-one-example-using-xml)
 
+
+2. **One to Many :**
+    - Using annotations :
+      - thoery - [click here](https://www.javatpoint.com/hibernate-one-to-many-mapping-using-annotation-example)
+      - program files - 
+
+    - Using XML :
+      - theory - (click here)[]

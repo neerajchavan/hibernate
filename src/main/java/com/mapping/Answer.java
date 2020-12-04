@@ -3,14 +3,18 @@ package com.mapping;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Answer {
     @Id
     @Column(name="answer_id")
     private int answerId;
-
     private String answer;
+
+    @ManyToOne
+    private Question question;
+    
 
     public int getAnswerId() {
         return answerId;
@@ -28,20 +32,29 @@ public class Answer {
         this.answer = answer;
     }
 
-    public Answer(int answerId, String answer) {
-        this.answerId = answerId;
-        this.answer = answer;
+    @Override
+    public String toString() {
+        return "Answer [answer=" + answer + ", answerId=" + answerId + "]";
+    }
+
+    public Question getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(Question question) {
+        this.question = question;
     }
 
     public Answer() {
     }
 
-    @Override
-    public String toString() {
-        return "Answer [answer=" + answer + ", answerId=" + answerId + "]";
+    public Answer(int answerId, String answer, Question question) {
+        this.answerId = answerId;
+        this.answer = answer;
+        this.question = question;
     }
+
     
-    
-    
+     
 }
 

@@ -1,9 +1,12 @@
 package com.mapping;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
+
 
 @Entity
 public class Question {
@@ -14,16 +17,10 @@ public class Question {
 
     private String question;
 
-    @OneToOne
-    private Answer answer;
+    @OneToMany(mappedBy = "question")
+    private List<Answer> answers;
 
     public Question() {
-    }
-
-    public Question(int questionId, String question, Answer answer) {
-        this.questionId = questionId;
-        this.question = question;
-        this.answer = answer;
     }
 
     public int getQuestionId() {
@@ -42,17 +39,23 @@ public class Question {
         this.question = question;
     }
 
-    public Answer getAnswer() {
-        return answer;
+    public List<Answer> getAnswers() {
+        return answers;
     }
 
-    public void setAnswer(Answer answer) {
-        this.answer = answer;
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
+    }
+
+    public Question(int questionId, String question, List<Answer> answers) {
+        this.questionId = questionId;
+        this.question = question;
+        this.answers = answers;
     }
 
     @Override
     public String toString() {
-        return "Question [answer=" + answer + ", question=" + question + ", questionId=" + questionId + "]";
+        return "Question [answers=" + answers + ", question=" + question + ", questionId=" + questionId + "]";
     }
 
 }

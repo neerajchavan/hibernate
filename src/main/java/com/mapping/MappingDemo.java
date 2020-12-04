@@ -1,5 +1,8 @@
 package com.mapping;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -18,21 +21,22 @@ public class MappingDemo {
 		Answer a1 = new Answer();
 		a1.setAnswerId(201);
 		a1.setAnswer("Java is a programming language");
-		q1.setAnswer(a1);
-
-		Question q2 = new Question();
-		q2.setQuestionId(102);
-		q2.setQuestion("What is Pune?");
+		a1.setQuestion(q1);
 
 		Answer a2 = new Answer();
 		a2.setAnswerId(202);
-		a2.setAnswer("Pune is a city");
-		q2.setAnswer(a2);
+		a2.setAnswer("Java is an object oriented programming language");
+		a2.setQuestion(q1);
+
+		List<Answer> aList = new ArrayList<Answer>();
+		aList.add(a1);
+		aList.add(a2);
+		
+		q1.setAnswers(aList);
 
 		Session s = factory.openSession();
 		Transaction transaction = s.beginTransaction();
 		s.save(q1);
-		s.save(q2);
 		s.save(a1);
 		s.save(a2);
 		transaction.commit();
