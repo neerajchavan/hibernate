@@ -31,7 +31,7 @@ public class MappingDemo {
 		List<Answer> aList = new ArrayList<Answer>();
 		aList.add(a1);
 		aList.add(a2);
-		
+
 		q1.setAnswers(aList);
 
 		Session s = factory.openSession();
@@ -39,7 +39,14 @@ public class MappingDemo {
 		s.save(q1);
 		s.save(a1);
 		s.save(a2);
+
 		transaction.commit();
+
+		// Early / Lazy Loading
+		Question q = s.get(Question.class, 101);
+		System.out.println("Question ID : " + q.getQuestionId());
+		System.out.println("Question : " + q.getQuestion());
+		
 		s.close();
 		factory.close();
 	}

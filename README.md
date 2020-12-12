@@ -73,6 +73,8 @@ Demo program for fetching data - [click here](https://github.com/neerajchavan/hi
 
 # Hibernate Mapping
 
+Explanation video - [click here](https://www.youtube.com/watch?v=VLlDaIcb3jE&list=PLsyeobzWxl7qBZtsEvp_n2A7sJs2MpF3r&index=13)
+
 1. **One to One Mapping :**
    - Using annotations :
      - theory - [click here](https://www.javatpoint.com/hibernate-one-to-one-example-using-annotation)
@@ -88,4 +90,55 @@ Demo program for fetching data - [click here](https://github.com/neerajchavan/hi
       - program files - 
 
     - Using XML :
-      - theory - (click here)[]
+      - theory - [click here](https://www.javatpoint.com/hibernate-one-to-many-example-using-xml)
+
+
+# Fetch Technique - Early & Lazy Loading
+
+   Lazy and Eager are two types of data loading strategies in ORMs such as hibernate and eclipse Link.  These data loading strategies we used when one entity class is having references to other Entities like Employee and Phone (phone in the employee). 
+
+**Lazy Loading** − Associated data loads only when we explicitly call getter or size method.
+ - Use Lazy Loading when you are using one-to-many collections.
+ - Use Lazy Loading when you are sure that you are not using related entities. 
+
+
+**Eager Loading** − Data loading happens at the time of their parent is fetched.
+
+  - Use Eager Loading when the relations are not too much. Thus, Eager Loading is a good practice to reduce further queries on the Server.
+  - Use Eager Loading when you are sure that you will be using related entities with the main entity everywhere.
+
+## Difference between eager and lazy loading
+
+| Key | Lazy  | Eager |
+| -------------- | ------------- | ------------- |
+| Fetching strategy | In Lazy loading, associated data loads only when we explicitly call getter or size method. |In Eager loading, data loading happens at the time of their parent is fetched. |
+| Default Strategy in ORM Layers  | ManyToMany and OneToMany associations used lazy loading strategy by default. |ManyToOne and OneToOne associations used lazy loading strategy by default. |
+| Loading Configuration | It can be enabled by using the annotation parameter : fetch = FetchType.LAZY |It can be enabled by using the annotation parameter : fetch = FetchType.EAGER |
+| Performance | Initial load time much smaller than Eager loading. | Loading too much unnecessary data might impact performance. |
+
+**Loading configuration - Eager loading**
+```java
+@OneToMany(mappedBy = "question", fetch = FetchType.EAGER)
+private List<Answer> answers;
+```
+
+### **Note : By deafult fetch type is Lazy** ###
+
+# Hibernate Lifecycle
+
+- [YouTube Tutorial](https://www.youtube.com/watch?v=opOX3Acd0o0&list=PL0zysOflRCekX8OO7V7pGQ9kxZ28JyJlk&index=17)
+- [Theory](https://www.javatpoint.com/hibernate-lifecycle)
+
+# Hibernate Caching
+Hibernate caching improves the performance of the application by pooling the object in the cache. It is useful when we have to fetch the same data multiple times. Caching is a mechanism to enhance the performance of a system. It is a buffer memorythat lies between the application and the database. Cache memory stores recently used data items in order to reduce the number of database hits as much as possible.
+
+**There are mainly two types of caching:**
+1. **First Level Cache** - Session object holds the first level cache data. It is enabled by default. The first level cache data will not be available to entire application. An application can use many session object.
+[Detail Explaination](https://howtodoinjava.com/hibernate/understanding-hibernate-first-level-cache-with-example/)
+1. [**Second Level Cache**](https://howtodoinjava.com/hibernate/how-hibernate-second-level-cache-works/)
+
+# Hibernate Query Lanugage
+
+- [Recource 1](https://www.javatpoint.com/hql)
+- [Recource 2](https://docs.jboss.org/hibernate/orm/3.5/reference/en/html/queryhql.html)
+- [Recource 3](https://howtodoinjava.com/hibernate/complete-hibernate-query-language-hql-tutorial/)
